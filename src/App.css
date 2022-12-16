@@ -6,5 +6,6 @@
 .content-container {
   width: 85%;
   height: 100vh;
+  overflow: auto;
   background-color: var(--background);
 }
