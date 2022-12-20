@@ -51,3 +51,23 @@ p {
 .image-container img {
   width: 80%;
 }
+
+@media screen and (max-width: 800px) {
+  .home-page {
+    padding: 0 10%;
+    flex-direction: column-reverse;
+  }
+  
+  .description-container{
+    height: 65vh;
+   justify-content: flex-start;
+  }
+
+  .image-container {
+    height: 25vh
+  }
+
+  .image-container img{
+    height: 50%;
+  }
+}

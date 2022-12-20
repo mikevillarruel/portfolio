@@ -10,9 +10,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import codeIcon from '../assets/images/code-icon.svg';
 import './Nav.css';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export const Nav = () => {
   const [value, setValue] = useState(0);
+  const matches = useMediaQuery('(max-width: 800px)');
 
   const handleChange = (newValue: number) => {
     setValue(newValue);
@@ -29,12 +31,13 @@ export const Nav = () => {
 
       <div className="nav-menu">
         <Tabs
-          orientation="vertical"
+          orientation={!matches ? 'vertical' : 'horizontal'}
           value={value}
           onChange={(_, value) => handleChange(value)}
           TabIndicatorProps={{
             style: {
               backgroundColor: 'var(--primary)',
+              [matches ? 'top' : 'right']: 0,
             },
           }}
         >

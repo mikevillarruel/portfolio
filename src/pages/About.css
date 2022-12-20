@@ -31,6 +31,10 @@ h3 {
   display: block;
 }
 
+.about-page .technologies-container h3 {
+  text-align: center;
+}
+
 .about-page .technologies-container .stack-container {
   display: flex;
   flex-wrap: wrap;
@@ -51,4 +55,24 @@ h3 {
 
 .about-page .technologies-container .stack-container .icon-container h6 {
   margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .about-page {
+    padding: 0 10%;
+  }
+
+  .about-page .description-container {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+
+  .about-page .description-container p {
+    text-align: center;
+  }
+
+  .about-page .description-container img {
+    margin: 15px;
+  }
 }
