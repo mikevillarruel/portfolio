@@ -59,7 +59,8 @@ h3 {
 
 @media screen and (max-width: 800px) {
   .about-page {
-    padding: 0 10%;
+    padding: 5vh 10%;
+    height: auto;
   }
 
   .about-page .description-container {
