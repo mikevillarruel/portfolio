@@ -6,17 +6,55 @@ import MailIcon from '@mui/icons-material/Mail';
 import WorkIcon from '@mui/icons-material/Work';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import codeIcon from '../assets/images/code-icon.svg';
 import './Nav.css';
-import useMediaQuery from '@mui/material/useMediaQuery';
+
+interface NavItem {
+  label: string;
+  icon: React.ReactElement;
+  to: string;
+}
 
 export const Nav = () => {
-  const [value, setValue] = useState(0);
+  const { pathname } = useLocation();
   const matches = useMediaQuery('(max-width: 800px)');
 
+  const navItems: NavItem[] = [
+    {
+      label: 'HOME',
+      icon: <HomeIcon />,
+      to: '/',
+    },
+    {
+      label: 'ABOUT ME',
+      icon: <AccountCircleIcon />,
+      to: '/about',
+    },
+    {
+      label: 'PROJECTS',
+      icon: <WorkIcon />,
+      to: '/projects',
+    },
+  ];
+
+  const getIndex = (): number => {
+    let index = 0;
+    for (let item of navItems) {
+      if (item.to == pathname) {
+        break;
+      }
+      index++;
+    }
+    return index;
+  };
+
+  const [value, setValue] = useState(getIndex());
+
   const handleChange = (newValue: number) => {
+    localStorage.setItem('index', newValue.toString());
     setValue(newValue);
   };
 
@@ -41,27 +79,18 @@ export const Nav = () => {
             },
           }}
         >
-          <Tab
-            label="HOME"
-            icon={<HomeIcon />}
-            iconPosition="start"
-            to="/"
-            component={Link}
-          />
-          <Tab
-            label="ABOUT ME"
-            icon={<AccountCircleIcon />}
-            iconPosition="start"
-            to="/about"
-            component={Link}
-          />
-          <Tab
-            label="PROJECTS"
-            icon={<WorkIcon />}
-            iconPosition="start"
-            to="/projects"
-            component={Link}
-          />
+          {navItems.map((item, index) => {
+            return (
+              <Tab
+                key={index}
+                label={item.label}
+                icon={item.icon}
+                iconPosition="start"
+                to={item.to}
+                component={Link}
+              />
+            );
+          })}
         </Tabs>
       </div>
 
