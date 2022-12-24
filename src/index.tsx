@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { LanguageProvider } from './context/LanguageContext';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Router } from './routes/Router';
@@ -10,9 +11,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Theme>
-      <Router />
-    </Theme>
+    <LanguageProvider>
+      <Theme>
+        <Router />
+      </Theme>
+    </LanguageProvider>
   </React.StrictMode>
 );
 

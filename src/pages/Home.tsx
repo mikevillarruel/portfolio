@@ -1,22 +1,23 @@
 import { Button } from '@mui/material';
+import { useContext } from 'react';
 import codeIcon from '../assets/images/code-icon.svg';
+import { LanguageContext } from '../context/LanguageContext';
 import './Home.css';
 
 export const Home = () => {
+  const { content } = useContext(LanguageContext);
+  document.title = `${content.michael_villarruel} | ${content.home}`;
+
   return (
     <div className="home-page">
       <div className="description-container">
         <div className="internal-container">
-          <h1>Michael Villarruel</h1>
-          <h4>Bachelor of Engineering (BEng), Systems Engineering </h4>
+          <h1>{content.michael_villarruel}</h1>
+          <h4>{content.bachelor_degree}</h4>
           <h4>&</h4>
-          <h4>Software Developer</h4>
+          <h4>{content.software_developer}</h4>
           <br />
-          <p>
-            I'm a Software Developer resident in Ecuador and a tech industry
-            lover. My main focus is to create applications that can help to
-            solve real problems and make people's lives easier.
-          </p>
+          <p>{content.home_description}</p>
           <Button
             variant="contained"
             onClick={() => {
@@ -26,7 +27,7 @@ export const Home = () => {
               );
             }}
           >
-            Download CV
+            {content.download_cv}
           </Button>
         </div>
       </div>

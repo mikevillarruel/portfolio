@@ -1,7 +1,9 @@
-import React from 'react'
+import { useContext } from 'react';
+import { LanguageContext } from '../context/LanguageContext';
 
 export const Projects = () => {
-  return (
-    <div>Projects</div>
-  )
-}
+  const { content } = useContext(LanguageContext);
+  document.title = `${content.michael_villarruel} | ${content.projects}`;
+
+  return <div>Projects</div>;
+};

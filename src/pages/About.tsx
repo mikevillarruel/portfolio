@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import profileImage from '../assets/images/profile.jpg';
 import cSharpIcon from '../assets/images/stack/icons8-c-sharp-logo.svg';
 import cssIcon from '../assets/images/stack/icons8-css3.svg';
@@ -11,7 +12,7 @@ import pythonIcon from '../assets/images/stack/icons8-python.svg';
 import reactIcon from '../assets/images/stack/icons8-react.svg';
 import typescriptIcon from '../assets/images/stack/icons8-typescript.svg';
 import sqlIcon from '../assets/images/stack/sql.svg';
-
+import { LanguageContext } from '../context/LanguageContext';
 import './About.css';
 
 interface Icon {
@@ -20,6 +21,9 @@ interface Icon {
 }
 
 export const About = () => {
+  const { content } = useContext(LanguageContext);
+  document.title = `${content.michael_villarruel} | ${content.about_me}`;
+
   const icons: Icon[] = [
     { name: 'HTML', image: htmlIcon },
     { name: 'CSS', image: cssIcon },
@@ -39,14 +43,8 @@ export const About = () => {
     <div className="about-page">
       <div className="description-container">
         <div>
-          <h1>About me</h1>
-
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-            quasi expedita ab impedit laboriosam voluptatum repellat. Nulla
-            error id temporibus delectus animi voluptatibus, reiciendis ea sunt
-            cum necessitatibus asperiores beatae!
-          </p>
+          <h1>{content.about_me}</h1>
+          <p>{content.about_description}</p>
         </div>
         <div>
           <img src={profileImage} alt="Profile" />
@@ -54,7 +52,7 @@ export const About = () => {
       </div>
       <div className="technologies-container">
         <div>
-          <h3>Technologies I've work with:</h3>
+          <h3>{content.technologies_i_have_work_with}</h3>
         </div>
         <div className="stack-container">
           {icons.map((icon, index) => (

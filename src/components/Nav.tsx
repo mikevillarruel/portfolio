@@ -1,15 +1,19 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import HomeIcon from '@mui/icons-material/Home';
+import LanguageIcon from '@mui/icons-material/Language';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MailIcon from '@mui/icons-material/Mail';
 import WorkIcon from '@mui/icons-material/Work';
+import MenuItem from '@mui/material/MenuItem/MenuItem';
+import Select from '@mui/material/Select/Select';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import codeIcon from '../assets/images/code-icon.svg';
+import { LanguageContext } from '../context/LanguageContext';
 import './Nav.css';
 
 interface NavItem {
@@ -21,20 +25,21 @@ interface NavItem {
 export const Nav = () => {
   const { pathname } = useLocation();
   const matches = useMediaQuery('(max-width: 800px)');
-
+  const { language, handleLanguageChange, content } =
+    useContext(LanguageContext);
   const navItems: NavItem[] = [
     {
-      label: 'HOME',
+      label: content.home.toUpperCase(),
       icon: <HomeIcon />,
       to: '/',
     },
     {
-      label: 'ABOUT ME',
+      label: content.about_me.toUpperCase(),
       icon: <AccountCircleIcon />,
       to: '/about',
     },
     {
-      label: 'PROJECTS',
+      label: content.projects.toUpperCase(),
       icon: <WorkIcon />,
       to: '/projects',
     },
@@ -60,6 +65,19 @@ export const Nav = () => {
 
   return (
     <div className="nav-container">
+      <div className="select-language">
+        <LanguageIcon />
+        <Select
+          variant="standard"
+          value={language}
+          label="Language"
+          onChange={(event) => handleLanguageChange(event.target.value)}
+        >
+          <MenuItem value={'en'}>En</MenuItem>
+          <MenuItem value={'es'}>Es</MenuItem>
+        </Select>
+      </div>
+
       <div className="nav-icon">
         <img src={codeIcon} alt="code icon" />
         <div>

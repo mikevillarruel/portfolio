@@ -60,6 +60,20 @@
   text-transform: none;
 }
 
+.nav-container .select-language {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  max-width: 10%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.nav-container .select-language svg {
+  margin: 0 5px;
+}
+
 @media screen and (max-width: 800px) {
   .nav-container {
     flex-direction: column;
@@ -94,5 +108,16 @@
 
   hr {
     display: none;
+  }
+
+  .nav-container .select-language {
+    right: auto;
+    left: 0;
+    flex-direction: column-reverse;
+    margin: 5px;
+  }
+
+  .nav-container .select-language svg {
+    margin: 5px 0;
   }
 }
