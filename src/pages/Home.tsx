@@ -1,24 +1,47 @@
-import { Button } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { useContext } from 'react';
 import codeIcon from '../assets/images/code-icon.svg';
 import { LanguageContext } from '../context/LanguageContext';
-import './Home.css';
 
 export const Home = () => {
   const { content } = useContext(LanguageContext);
   document.title = `${content.michael_villarruel} | ${content.home}`;
 
   return (
-    <div className="home-page">
-      <div className="description-container">
-        <div className="internal-container">
-          <h1>{content.michael_villarruel}</h1>
-          <h4>{content.bachelor_degree}</h4>
-          <h4>&</h4>
-          <h4>{content.software_developer}</h4>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: { xs: 'column-reverse', md: 'row' },
+        paddingX: { xs: '10%', md: '15%' },
+      }}
+    >
+      <Box
+        sx={{
+          flexGrow: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: { xs: 'flex-start', md: 'center' },
+          textAlign: 'initial',
+          height: { xs: '65vh', md: '100vh' },
+          alignItems: 'center',
+        }}
+      >
+        <Box
+          sx={{
+            maxWidth: '80%',
+            textAlign: 'center',
+          }}
+        >
+          <Typography variant="h3">{content.michael_villarruel}</Typography>
+          <Typography variant="h4">{content.bachelor_degree}</Typography>
+          <Typography variant="h4">&</Typography>
+          <Typography variant="h4">{content.software_developer}</Typography>
           <br />
-          <p>{content.home_description}</p>
+          <Typography variant="body1">{content.home_description}</Typography>
           <Button
+            sx={{
+              marginTop: '20px',
+            }}
             variant="contained"
             onClick={() => {
               window.open(
@@ -29,11 +52,27 @@ export const Home = () => {
           >
             {content.download_cv}
           </Button>
-        </div>
-      </div>
-      <div className="image-container">
-        <img src={codeIcon} alt="code icon" />
-      </div>
-    </div>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          flexGrow: 1,
+          minWidth: '30%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: { xs: '25vh', md: 'auto' },
+        }}
+      >
+        <img
+          style={{
+            width: '80%',
+            height: '50%',
+          }}
+          src={codeIcon}
+          alt="code icon"
+        />
+      </Box>
+    </Box>
   );
 };

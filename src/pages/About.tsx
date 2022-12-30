@@ -1,3 +1,4 @@
+import { Avatar, Box, Typography } from '@mui/material';
 import { useContext } from 'react';
 import profileImage from '../assets/images/profile.jpg';
 import cSharpIcon from '../assets/images/stack/icons8-c-sharp-logo.svg';
@@ -13,7 +14,7 @@ import reactIcon from '../assets/images/stack/icons8-react.svg';
 import typescriptIcon from '../assets/images/stack/icons8-typescript.svg';
 import sqlIcon from '../assets/images/stack/sql.svg';
 import { LanguageContext } from '../context/LanguageContext';
-import './About.css';
+import { Styles } from '../interfaces/interfaces';
 
 interface Icon {
   name: string;
@@ -39,30 +40,105 @@ export const About = () => {
     { name: 'Docker', image: dockerIcon },
   ];
 
+  const styles: Styles = {
+    aboutPage: {
+      height: { xs: 'auto', md: '100vh' },
+      paddingX: { xs: '10%', md: '20%' },
+    },
+    descriptionContainer: {
+      height: { xs: 'auto', md: '50%' },
+      display: 'flex',
+      flexDirection: { xs: 'column', md: 'row' },
+      alignItems: 'center',
+    },
+  };
+
   return (
-    <div className="about-page">
-      <div className="description-container">
-        <div>
-          <h1>{content.about_me}</h1>
-          <p>{content.about_description}</p>
-        </div>
-        <div>
-          <img src={profileImage} alt="Profile" />
-        </div>
-      </div>
-      <div className="technologies-container">
-        <div>
-          <h3>{content.technologies_i_have_work_with}</h3>
-        </div>
-        <div className="stack-container">
+    <Box sx={styles.aboutPage}>
+      <Box sx={styles.descriptionContainer}>
+        <Box>
+          <Typography
+            sx={{
+              textAlign: {
+                xs: 'center',
+                md: 'justify',
+              },
+            }}
+            variant="h3"
+          >
+            {content.about_me}
+          </Typography>
+          <Typography
+            sx={{
+              textAlign: {
+                xs: 'center',
+                md: 'justify',
+              },
+            }}
+            variant="body1"
+          >
+            {content.about_description}
+          </Typography>
+        </Box>
+        <Box>
+          <Avatar
+            src={profileImage}
+            alt="Profile"
+            sx={{
+              width: 150,
+              height: 150,
+              margin: { xs: '15px', md: '0px' },
+              marginLeft: { md: '20px' },
+            }}
+          />
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          height: 'auto',
+          display: 'block',
+        }}
+      >
+        <Box>
+          <Typography
+            variant="h5"
+            sx={{
+              textAlign: 'center',
+            }}
+          >
+            {content.technologies_i_have_work_with}
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+          }}
+        >
           {icons.map((icon, index) => (
-            <div className="icon-container" key={index}>
-              <img src={icon.image} alt={icon.name} />
-              <h6>{icon.name}</h6>
-            </div>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'space-evenly',
+                margin: '10px',
+              }}
+              key={index}
+            >
+              <img
+                style={{
+                  height: 80,
+                }}
+                src={icon.image}
+                alt={icon.name}
+              />
+              <Typography variant="h6">{icon.name}</Typography>
+            </Box>
           ))}
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
