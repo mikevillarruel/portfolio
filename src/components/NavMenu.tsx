@@ -55,24 +55,6 @@ export const NavMenu = () => {
     setValue(newValue);
   };
 
-  const styles: Styles = {
-    navMenuItem: {
-      width: { xs: '33.3%', md: '100%' },
-      paddingX: '10%',
-      textDecoration: 'none',
-      fontWeight: 'bold',
-      textTransform: 'none',
-    },
-    navMenu: {
-      width: '100%',
-    },
-    tabIndicatorProps: {
-      backgroundColor: 'var(--primary)',
-      top: { xs: 0, md: 'auto' },
-      right: { xs: 'auto', md: 0 },
-    },
-  };
-
   return (
     <Box sx={styles.navMenu}>
       <Tabs
@@ -97,4 +79,22 @@ export const NavMenu = () => {
       </Tabs>
     </Box>
   );
+};
+
+const styles: Styles = {
+  navMenu: {
+    width: '100%',
+  },
+  navMenuItem: {
+    width: { xs: '33.3%', md: '100%' },
+    paddingX: '10%',
+    textDecoration: 'none',
+    fontWeight: 'bold',
+    textTransform: 'none',
+  },
+  tabIndicatorProps: {
+    backgroundColor: 'primary.main',
+    top: { xs: 0, md: 'auto' },
+    right: { xs: 'auto', md: 0 },
+  },
 };

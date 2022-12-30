@@ -1,33 +1,32 @@
 import { Box } from '@mui/material';
-import useTheme from '@mui/material/styles/useTheme';
 import { Outlet } from 'react-router-dom';
 import { Nav } from './components/Nav';
+import { Styles } from './interfaces/interfaces';
 
 function App() {
-  const theme = useTheme();
-
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: { xs: 'column-reverse', md: 'row' },
-        minWidth: 360,
-        overflow: 'auto',
-      }}
-    >
+    <Box sx={styles.rootContainer}>
       <Nav />
-      <Box
-        sx={{
-          width: { xs: '100%', md: '85%' },
-          height: { xs: '90vh', md: '100vh' },
-          overflow: 'auto',
-          backgroundColor: theme.palette.background.default,
-        }}
-      >
+      <Box sx={styles.contentContainer}>
         <Outlet />
       </Box>
     </Box>
   );
 }
+
+const styles: Styles = {
+  rootContainer: {
+    display: 'flex',
+    flexDirection: { xs: 'column-reverse', md: 'row' },
+    minWidth: '360px',
+    overflow: 'auto',
+  },
+  contentContainer: {
+    width: { xs: '100%', md: '85%' },
+    height: { xs: '90vh', md: '100vh' },
+    overflow: 'auto',
+    backgroundColor: 'background.default',
+  },
+};
 
 export default App;

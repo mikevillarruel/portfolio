@@ -40,57 +40,19 @@ export const About = () => {
     { name: 'Docker', image: dockerIcon },
   ];
 
-  const styles: Styles = {
-    aboutPage: {
-      height: { xs: 'auto', md: '100vh' },
-      paddingX: { xs: '10%', md: '20%' },
-    },
-    descriptionContainer: {
-      height: { xs: 'auto', md: '50%' },
-      display: 'flex',
-      flexDirection: { xs: 'column', md: 'row' },
-      alignItems: 'center',
-    },
-  };
-
   return (
     <Box sx={styles.aboutPage}>
       <Box sx={styles.descriptionContainer}>
         <Box>
-          <Typography
-            sx={{
-              textAlign: {
-                xs: 'center',
-                md: 'justify',
-              },
-            }}
-            variant="h3"
-          >
+          <Typography sx={styles.title} variant="h3">
             {content.about_me}
           </Typography>
-          <Typography
-            sx={{
-              textAlign: {
-                xs: 'center',
-                md: 'justify',
-              },
-            }}
-            variant="body1"
-          >
+          <Typography sx={styles.description} variant="body1">
             {content.about_description}
           </Typography>
         </Box>
         <Box>
-          <Avatar
-            src={profileImage}
-            alt="Profile"
-            sx={{
-              width: 150,
-              height: 150,
-              margin: { xs: '15px', md: '0px' },
-              marginLeft: { md: '20px' },
-            }}
-          />
+          <Avatar src={profileImage} alt="Profile" sx={styles.avatar} />
         </Box>
       </Box>
       <Box
@@ -100,40 +62,14 @@ export const About = () => {
         }}
       >
         <Box>
-          <Typography
-            variant="h5"
-            sx={{
-              textAlign: 'center',
-            }}
-          >
+          <Typography variant="h5" sx={styles.stackTitle}>
             {content.technologies_i_have_work_with}
           </Typography>
         </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-          }}
-        >
+        <Box sx={styles.stackContainer}>
           {icons.map((icon, index) => (
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'space-evenly',
-                margin: '10px',
-              }}
-              key={index}
-            >
-              <img
-                style={{
-                  height: 80,
-                }}
-                src={icon.image}
-                alt={icon.name}
-              />
+            <Box sx={styles.technologieContainer} key={index}>
+              <img style={{ height: 80 }} src={icon.image} alt={icon.name} />
               <Typography variant="h6">{icon.name}</Typography>
             </Box>
           ))}
@@ -141,4 +77,50 @@ export const About = () => {
       </Box>
     </Box>
   );
+};
+
+const styles: Styles = {
+  aboutPage: {
+    height: { xs: 'auto', md: '100vh' },
+    paddingX: { xs: '10%', md: '20%' },
+  },
+  descriptionContainer: {
+    height: { xs: 'auto', md: '50%' },
+    display: 'flex',
+    flexDirection: { xs: 'column', md: 'row' },
+    alignItems: 'center',
+  },
+  title: {
+    textAlign: {
+      xs: 'center',
+      md: 'left',
+    },
+  },
+  description: {
+    textAlign: {
+      xs: 'center',
+      md: 'justify',
+    },
+  },
+  avatar: {
+    width: 150,
+    height: 150,
+    margin: { xs: '15px', md: '0px' },
+    marginLeft: { md: '20px' },
+  },
+  stackTitle: {
+    textAlign: 'center',
+  },
+  stackContainer: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+  technologieContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    margin: '10px',
+  },
 };

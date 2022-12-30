@@ -35,7 +35,8 @@ const theme = createTheme({
     h6: {
       fontSize: '0.8rem',
     },
-    fontFamily: 'var(--font-family);',
+    fontFamily:
+      "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
   },
   components: {
     MuiTab: {
