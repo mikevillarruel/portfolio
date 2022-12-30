@@ -3,7 +3,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import WorkIcon from '@mui/icons-material/Work';
 import { Box, Tab, Tabs, useMediaQuery } from '@mui/material';
 import { Theme } from '@mui/material/styles/createTheme';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { LanguageContext } from '../context/LanguageContext';
 import { Styles } from '../interfaces/interfaces';
@@ -18,6 +18,10 @@ export const NavMenu = () => {
   const matches = useMediaQuery((theme: Theme) => theme.breakpoints.up('md'));
   const { content } = useContext(LanguageContext);
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    handleChange(getIndex());
+  }, [pathname]);
 
   const navItems: NavItem[] = [
     {
