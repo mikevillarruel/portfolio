@@ -42,20 +42,12 @@ export const NavMenu = () => {
   ];
 
   const getIndex = (): number => {
-    let index = 0;
-    for (let item of navItems) {
-      if (item.to == pathname) {
-        break;
-      }
-      index++;
-    }
-    return index;
+    return navItems.findIndex((item) => item.to === pathname);
   };
 
   const [value, setValue] = useState(getIndex());
 
   const handleChange = (newValue: number) => {
-    localStorage.setItem('index', newValue.toString());
     setValue(newValue);
   };
 
