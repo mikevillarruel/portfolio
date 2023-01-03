@@ -1,3 +1,4 @@
+import { CssBaseline } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { LanguageProvider } from './context/LanguageContext';
@@ -13,6 +14,7 @@ root.render(
   <React.StrictMode>
     <LanguageProvider>
       <Theme>
+        <CssBaseline />
         <Router />
       </Theme>
     </LanguageProvider>

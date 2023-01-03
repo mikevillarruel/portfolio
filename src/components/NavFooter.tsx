@@ -13,15 +13,15 @@ export const NavFooter = () => {
   const footerItems: FooterItem[] = [
     {
       href: 'https://www.linkedin.com/in/mikevillarruel/',
-      icon: <LinkedInIcon sx={{ color: 'white' }} />,
+      icon: <LinkedInIcon sx={styles.icon} />,
     },
     {
       href: 'https://www.github.com/mikevillarruel',
-      icon: <GitHubIcon sx={{ color: 'white' }} />,
+      icon: <GitHubIcon sx={styles.icon} />,
     },
     {
       href: 'mailto:alejovillarruel@gmail.com',
-      icon: <MailIcon sx={{ color: 'white' }} />,
+      icon: <MailIcon sx={styles.icon} />,
     },
   ];
 
@@ -50,13 +50,16 @@ const styles: Styles = {
     alignItems: 'center',
     justifyContent: 'space-evenly',
     backgroundColor: 'primary.main',
-    paddingY: '2vh',
+    paddingY: { xs: 0, md: '2vh' },
     top: { xs: 0, md: 'auto' },
     right: { xs: 0, md: 'auto' },
-    position: { xs: 'absolute', md: 'relative' },
-    maxWidth: { xs: '10%', md: '100%' },
+    position: { xs: 'fixed', md: 'relative' },
+    width: { xs: 'fit-content', md: '100%' },
   },
   navFooterItem: {
     margin: { xs: '10px', md: 0 },
+  },
+  icon: {
+    color: 'background.paper',
   },
 };

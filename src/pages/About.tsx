@@ -14,6 +14,7 @@ import reactIcon from '../assets/images/stack/icons8-react.svg';
 import typescriptIcon from '../assets/images/stack/icons8-typescript.svg';
 import sqlIcon from '../assets/images/stack/sql.svg';
 import { LanguageContext } from '../context/LanguageContext';
+import { usePageTitle } from '../hooks/usePageTitle';
 import { Styles } from '../interfaces/interfaces';
 
 interface Icon {
@@ -23,7 +24,7 @@ interface Icon {
 
 export const About = () => {
   const { content } = useContext(LanguageContext);
-  document.title = `${content.michael_villarruel} | ${content.about_me}`;
+  usePageTitle(content.about_me);
 
   const icons: Icon[] = [
     { name: 'HTML', image: htmlIcon },
@@ -55,18 +56,13 @@ export const About = () => {
           <Avatar src={profileImage} alt="Profile" sx={styles.avatar} />
         </Box>
       </Box>
-      <Box
-        sx={{
-          height: 'auto',
-          display: 'block',
-        }}
-      >
+      <Box sx={styles.stackContainer}>
         <Box>
           <Typography variant="h5" sx={styles.stackTitle}>
             {content.technologies_i_have_work_with}
           </Typography>
         </Box>
-        <Box sx={styles.stackContainer}>
+        <Box sx={styles.techContainer}>
           {icons.map((icon, index) => (
             <Box sx={styles.technologieContainer} key={index}>
               <img style={{ height: 80 }} src={icon.image} alt={icon.name} />
@@ -81,7 +77,7 @@ export const About = () => {
 
 const styles: Styles = {
   aboutPage: {
-    height: { xs: 'auto', md: '100vh' },
+    height: { xs: 'auto', md: '100%' },
     paddingX: { xs: '10%', md: '20%' },
   },
   descriptionContainer: {
@@ -103,8 +99,8 @@ const styles: Styles = {
     },
   },
   avatar: {
-    width: 150,
-    height: 150,
+    width: '150px',
+    height: '150px',
     margin: { xs: '15px', md: '0px' },
     marginLeft: { md: '20px' },
   },
@@ -112,6 +108,10 @@ const styles: Styles = {
     textAlign: 'center',
   },
   stackContainer: {
+    height: 'auto',
+    display: 'block',
+  },
+  techContainer: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',

@@ -3,12 +3,10 @@ import { Styles } from '../interfaces/interfaces';
 import { NavFooter } from './NavFooter';
 import { NavIcon } from './NavIcon';
 import { NavMenu } from './NavMenu';
-import { SelectLanguage } from './SelectLanguage';
 
 export const Nav = () => {
   return (
     <Box sx={styles.navContainer}>
-      <SelectLanguage />
       <NavIcon />
       <NavMenu />
       <NavFooter />
@@ -18,11 +16,13 @@ export const Nav = () => {
 
 const styles: Styles = {
   navContainer: {
+    position: { xs: 'fixed', md: 'relative' },
+    bottom: { xs: 0, md: 'auto' },
     width: { xs: '100%', md: '15%' },
-    height: { xs: '10vh', md: '100vh' },
+    height: { xs: 'fit-content', md: '100vh' },
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: { xs: 'center', md: 'space-between' },
     backgroundColor: 'background.paper',
     borderRightWidth: { xs: '0', md: '1px' },
     borderRightStyle: 'solid',

@@ -1,10 +1,7 @@
 import { useContext } from 'react';
 import { LanguageContext } from '../context/LanguageContext';
-import { usePageTitle } from '../hooks/usePageTitle';
 
-export const Projects = () => {
+export const usePageTitle = (pageName: string) => {
   const { content } = useContext(LanguageContext);
-  usePageTitle(content.projects);
-
-  return <div>Projects</div>;
+  document.title = `${pageName} | ${content.michael_villarruel}`;
 };

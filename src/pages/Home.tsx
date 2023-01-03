@@ -2,11 +2,12 @@ import { Box, Button, Typography } from '@mui/material';
 import { useContext } from 'react';
 import codeIcon from '../assets/images/code-icon.svg';
 import { LanguageContext } from '../context/LanguageContext';
+import { usePageTitle } from '../hooks/usePageTitle';
 import { Styles } from '../interfaces/interfaces';
 
 export const Home = () => {
   const { content } = useContext(LanguageContext);
-  document.title = `${content.michael_villarruel} | ${content.home}`;
+  usePageTitle(content.home);
 
   return (
     <Box sx={styles.homePage}>
@@ -49,14 +50,13 @@ const styles: Styles = {
   homePage: {
     display: 'flex',
     flexDirection: { xs: 'column-reverse', md: 'row' },
+    height: { xs: 'auto', md: '100%' },
     paddingX: { xs: '10%', md: '15%' },
   },
   descriptionContainer: {
-    flexGrow: 1,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: { xs: 'flex-start', md: 'center' },
-    height: { xs: '65vh', md: '100vh' },
     alignItems: 'center',
   },
   internalContainer: {
@@ -75,6 +75,6 @@ const styles: Styles = {
     height: { xs: '25vh', md: 'auto' },
   },
   downloadButton: {
-    marginTop: '20px',
+    marginY: '20px',
   },
 };

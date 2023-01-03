@@ -82,14 +82,13 @@ const styles: Styles = {
     width: '100%',
   },
   navMenuItem: {
-    width: { xs: '33.3%', md: '100%' },
+    width: { xs: 'calc(100% / 3)', md: '100%' },
     paddingX: '10%',
     textDecoration: 'none',
     fontWeight: 'bold',
     textTransform: 'none',
   },
   tabIndicatorProps: {
-    backgroundColor: 'primary.main',
     top: { xs: 0, md: 'auto' },
     right: { xs: 'auto', md: 0 },
   },

@@ -9,7 +9,7 @@ export const SelectLanguage = () => {
 
   return (
     <Box sx={styles.selectLanguage}>
-      <LanguageIcon />
+      <LanguageIcon color="primary" />
       <Select
         variant="standard"
         value={language}
@@ -28,7 +28,7 @@ const styles: Styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    margin: { xs: '5px', md: '10px' },
+    margin: { xs: '5px', md: '10px 20px' },
     width: { xs: '10%', md: '5%' },
     position: 'absolute',
     right: { xs: 'auto', md: 0 },
