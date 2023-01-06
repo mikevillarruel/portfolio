@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
+import { ModeSwitch } from './components/ModeSwitch';
 import { Nav } from './components/Nav';
 import { SelectLanguage } from './components/SelectLanguage';
 import { Styles } from './interfaces/interfaces';
@@ -12,6 +13,7 @@ function App() {
         <Outlet />
       </Box>
       <SelectLanguage />
+      <ModeSwitch />
     </Box>
   );
 }

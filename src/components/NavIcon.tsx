@@ -1,8 +1,11 @@
 import { Box, Divider } from '@mui/material';
-import codeIcon from '../assets/images/code-icon.svg';
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 import { Styles } from '../interfaces/interfaces';
 
 export const NavIcon = () => {
+  const { appIcon } = useContext(ThemeContext);
+
   return (
     <Box sx={styles.logoContainer}>
       <img
@@ -10,7 +13,7 @@ export const NavIcon = () => {
           margin: '2vh 0',
           height: '25px',
         }}
-        src={codeIcon}
+        src={appIcon}
         alt="code icon"
       />
       <Box>

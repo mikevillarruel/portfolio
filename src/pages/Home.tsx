@@ -1,13 +1,14 @@
 import { Box, Button, Typography } from '@mui/material';
 import { useContext } from 'react';
-import codeIcon from '../assets/images/code-icon.svg';
 import { LanguageContext } from '../context/LanguageContext';
+import { ThemeContext } from '../context/ThemeContext';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { Styles } from '../interfaces/interfaces';
 
 export const Home = () => {
   const { content } = useContext(LanguageContext);
   usePageTitle(content.home);
+  const { appIcon } = useContext(ThemeContext);
 
   return (
     <Box sx={styles.homePage}>
@@ -38,7 +39,7 @@ export const Home = () => {
       <Box sx={styles.imageContainer}>
         <img
           style={{ width: '80%', height: '50%' }}
-          src={codeIcon}
+          src={appIcon}
           alt="code icon"
         />
       </Box>

@@ -2,6 +2,7 @@ import { CssBaseline } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { LanguageProvider } from './context/LanguageContext';
+import { ThemeProvider } from './context/ThemeContext';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Router } from './routes/Router';
@@ -13,10 +14,12 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <LanguageProvider>
-      <Theme>
-        <CssBaseline />
-        <Router />
-      </Theme>
+      <ThemeProvider>
+        <Theme>
+          <CssBaseline />
+          <Router />
+        </Theme>
+      </ThemeProvider>
     </LanguageProvider>
   </React.StrictMode>
 );
