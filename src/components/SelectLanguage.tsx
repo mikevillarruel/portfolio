@@ -30,7 +30,7 @@ const styles: Styles = {
     justifyContent: 'space-evenly',
     margin: { xs: '5px', md: '10px 20px' },
     width: { xs: '10%', md: '5%' },
-    position: 'absolute',
+    position: 'fixed',
     right: { xs: 'auto', md: 0 },
     top: 0,
     left: { xs: 0, md: 'auto' },
