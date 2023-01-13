@@ -58,7 +58,6 @@ const styles: Styles = {
     display: 'flex',
     flexDirection: { xs: 'column-reverse', md: 'row' },
     height: { xs: 'auto', md: '100%' },
-    paddingX: { xs: '10%', md: '15%' },
   },
   descriptionContainer: {
     display: 'flex',

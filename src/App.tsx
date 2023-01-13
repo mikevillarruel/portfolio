@@ -26,6 +26,7 @@ const styles: Styles = {
     marginBottom: { xs: '70px', md: '0px' },
   },
   contentContainer: {
+    paddingX: { xs: '15%', md: '10%' },
     paddingY: { xs: '20px', md: 0 },
     width: { xs: '100%', md: '85%' },
     height: { xs: 'auto', md: '100vh' },

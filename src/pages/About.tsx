@@ -78,7 +78,7 @@ export const About = () => {
 const styles: Styles = {
   aboutPage: {
     height: { xs: 'auto', md: '100%' },
-    paddingX: { xs: '15%', md: '20%' },
+    paddingX: { xs: 0, md: '10%' },
   },
   descriptionContainer: {
     height: { xs: 'auto', md: '50%' },
