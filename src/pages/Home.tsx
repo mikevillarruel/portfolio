@@ -15,9 +15,15 @@ export const Home = () => {
       <Box sx={styles.descriptionContainer}>
         <Box sx={styles.internalContainer}>
           <Typography variant="h3">{content.michael_villarruel}</Typography>
-          <Typography variant="h4">{content.bachelor_degree}</Typography>
-          <Typography variant="h4">&</Typography>
-          <Typography variant="h4">{content.software_developer}</Typography>
+          <Typography variant="body1" sx={styles.bodyBold}>
+            {content.bachelor_degree}
+          </Typography>
+          <Typography variant="body1" sx={styles.bodyBold}>
+            &
+          </Typography>
+          <Typography variant="body1" sx={styles.bodyBold}>
+            {content.software_developer}
+          </Typography>
           <br />
           <Typography sx={styles.description} variant="body1">
             {content.home_description}
@@ -77,5 +83,8 @@ const styles: Styles = {
   },
   downloadButton: {
     marginY: '20px',
+  },
+  bodyBold: {
+    fontWeight: 'bold',
   },
 };

@@ -77,28 +77,39 @@ export const ThemeProvider = ({ children }: any) => {
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
   theme.typography = createTypography(theme.palette, {
-    h3: {
-      color: theme.palette.primary.main,
-      fontWeight: 'bold',
-    },
+    fontFamily:
+      "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
     body1: {
       color: theme.palette.secondary.main,
     },
-    h4: {
+    body2: {
       color: theme.palette.secondary.main,
+    },
+    h1: {
       fontWeight: 'bold',
-      fontSize: '1rem',
+      color: theme.palette.primary.main,
+    },
+    h2: {
+      fontWeight: 'bold',
+      color: theme.palette.primary.main,
+    },
+    h3: {
+      fontWeight: 'bold',
+      color: theme.palette.primary.main,
+    },
+    h4: {
+      fontWeight: 'bold',
+
+      color: theme.palette.secondary.main,
     },
     h5: {
-      color: theme.palette.primary.main,
       fontWeight: 'bold',
-      fontSize: '1.5rem',
+      color: theme.palette.secondary.main,
     },
     h6: {
-      fontSize: '0.8rem',
+      fontWeight: 'bold',
+      color: theme.palette.secondary.main,
     },
-    fontFamily:
-      "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
   });
 
   theme.components = {

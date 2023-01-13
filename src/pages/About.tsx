@@ -66,7 +66,7 @@ export const About = () => {
           {icons.map((icon, index) => (
             <Box sx={styles.technologieContainer} key={index}>
               <img style={{ height: 80 }} src={icon.image} alt={icon.name} />
-              <Typography variant="h6">{icon.name}</Typography>
+              <Typography variant="body2">{icon.name}</Typography>
             </Box>
           ))}
         </Box>
