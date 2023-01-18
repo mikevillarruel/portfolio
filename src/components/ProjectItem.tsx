@@ -1,6 +1,8 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkIcon from '@mui/icons-material/Link';
 import { Box, Card, Link, Typography } from '@mui/material';
+import { useContext } from 'react';
+import { LanguageContext } from '../context/LanguageContext';
 import { Styles } from '../interfaces/interfaces';
 
 export interface Project {
@@ -15,6 +17,7 @@ export interface Project {
 export const ProjectItem = (props: Project) => {
   const { name, description, features, technologies, githubLink, liveLink } =
     props;
+  const { content } = useContext(LanguageContext);
 
   return (
     <Card sx={styles.card}>
@@ -35,13 +38,13 @@ export const ProjectItem = (props: Project) => {
       </Box>
       <Typography variant="body2">{description}</Typography>
       <Typography variant="body2">
-        <b>Features: </b>
+        <b>{content.features}: </b>
       </Typography>
       <Typography variant="body2">
         {features.map((feature) => feature).join(', ')}
       </Typography>
       <Typography variant="body2">
-        <b>Technologies: </b>
+        <b>{content.technologies}: </b>
       </Typography>
       <Typography variant="body2">
         {technologies.map((tech) => tech).join(', ')}

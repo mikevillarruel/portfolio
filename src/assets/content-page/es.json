@@ -8,5 +8,23 @@
   "about_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quasi expedita ab impedit laboriosam voluptatum repellat. Nulla error id temporibus delectus animi voluptatibus, reiciendis ea sunt cum necessitatibus asperiores beatae!",
   "technologies_i_have_work_with": "Tecnologías con las que he trabajado",
   "projects": "Proyectos",
-  "download_cv": "Descargar CV"
+  "download_cv": "Descargar CV",
+  "technologies": "Tecnologías",
+  "features": "Características",
+
+  "portafolio_name": "Portafolio",
+  "portafolio_description": "Este es mi portafolio personal, donde puedes encontrar información sobre mi y mis proyectos.",
+  "portafolio_github_link": "https://github.com/mikevillarruel/portfolio",
+  "portafolio_live_link": "https://mikevillarruel.netlify.app",
+
+  "_features": {
+    "responsive_design": "Diseño Responsivo",
+    "dark_mode": "Modo Oscuro",
+    "internationalization": "Internacionalización"
+  },
+  "_technologies": {
+    "react": "React.js",
+    "typescript": "TypeScript",
+    "material_ui": "Material-UI"
+  }
 }
