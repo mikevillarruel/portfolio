@@ -9,8 +9,8 @@ export const ProjectList = () => {
 
   const projectList: Project[] = [
     {
-      name: content.portafolio_name,
-      description: content.portafolio_description,
+      name: content.portfolio_name,
+      description: content.portfolio_description,
       features: [
         _features.responsive_design,
         _features.dark_mode,
@@ -21,8 +21,8 @@ export const ProjectList = () => {
         _technologies.typescript,
         _technologies.material_ui,
       ],
-      githubLink: content.portafolio_github_link,
-      liveLink: content.portafolio_live_link,
+      githubLink: content.portfolio_github_link,
+      liveLink: content.portfolio_live_link,
     },
   ];
 

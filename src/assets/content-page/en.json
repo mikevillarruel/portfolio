@@ -12,10 +12,10 @@
   "technologies": "Technologies",
   "features": "Features",
 
-  "portafolio_name": "Portafolio",
-  "portafolio_description": "This is my personal portafolio, where you can find information about me and my projects.",
-  "portafolio_github_link": "https://github.com/mikevillarruel/portfolio",
-  "portafolio_live_link": "https://mikevillarruel.netlify.app",
+  "portfolio_name": "Portfolio",
+  "portfolio_description": "This is my personal portafolio, where you can find information about me and my projects.",
+  "portfolio_github_link": "https://github.com/mikevillarruel/portfolio",
+  "portfolio_live_link": "https://mikevillarruel.netlify.app",
 
   "_features": {
     "responsive_design": "Responsive Design",
