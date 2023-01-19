@@ -1,4 +1,4 @@
-import { Avatar, Box, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useContext } from 'react';
 import profileImage from '../assets/images/profile.jpg';
 import cSharpIcon from '../assets/images/stack/icons8-c-sharp-logo.svg';
@@ -13,20 +13,17 @@ import pythonIcon from '../assets/images/stack/icons8-python.svg';
 import reactIcon from '../assets/images/stack/icons8-react.svg';
 import typescriptIcon from '../assets/images/stack/icons8-typescript.svg';
 import sqlIcon from '../assets/images/stack/sql.svg';
+import { AboutMe } from '../components/AboutMe';
+import { Technologie, TechnologieList } from '../components/TechnologieList';
 import { LanguageContext } from '../context/LanguageContext';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { Styles } from '../interfaces/interfaces';
-
-interface Icon {
-  name: string;
-  image: string;
-}
 
 export const About = () => {
   const { content } = useContext(LanguageContext);
   usePageTitle(content.about_me);
 
-  const icons: Icon[] = [
+  const technologies: Technologie[] = [
     { name: 'HTML', image: htmlIcon },
     { name: 'CSS', image: cssIcon },
     { name: 'JavaScript', image: javascriptIcon },
@@ -44,32 +41,19 @@ export const About = () => {
   return (
     <Box sx={styles.aboutPage}>
       <Box sx={styles.descriptionContainer}>
-        <Box>
-          <Typography sx={styles.title} variant="h3">
-            {content.about_me}
-          </Typography>
-          <Typography sx={styles.description} variant="body1">
-            {content.about_description}
-          </Typography>
-        </Box>
-        <Box>
-          <Avatar src={profileImage} alt="Profile" sx={styles.avatar} />
-        </Box>
+        <Typography sx={styles.title} variant="h3">
+          {content.about_me}
+        </Typography>
+        <AboutMe description={content.about_description} image={profileImage} />
       </Box>
+
       <Box sx={styles.stackContainer}>
         <Box>
           <Typography variant="h5" sx={styles.stackTitle}>
             {content.technologies_i_have_work_with}
           </Typography>
         </Box>
-        <Box sx={styles.techContainer}>
-          {icons.map((icon, index) => (
-            <Box sx={styles.technologieContainer} key={index}>
-              <img style={{ height: 80 }} src={icon.image} alt={icon.name} />
-              <Typography variant="body2">{icon.name}</Typography>
-            </Box>
-          ))}
-        </Box>
+        <TechnologieList items={technologies} />
       </Box>
     </Box>
   );
@@ -83,44 +67,22 @@ const styles: Styles = {
   descriptionContainer: {
     height: { xs: 'auto', md: '50%' },
     display: 'flex',
-    flexDirection: { xs: 'column', md: 'row' },
-    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   title: {
     textAlign: {
       xs: 'center',
       md: 'left',
     },
-  },
-  description: {
-    textAlign: {
-      xs: 'center',
-      md: 'justify',
-    },
-  },
-  avatar: {
-    width: '150px',
-    height: '150px',
-    margin: { xs: '15px', md: '0px' },
-    marginLeft: { md: '20px' },
+    marginBottom: '1rem',
   },
   stackTitle: {
     textAlign: 'center',
+    marginBottom: '1rem',
   },
   stackContainer: {
     height: 'auto',
     display: 'block',
-  },
-  techContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-  },
-  technologieContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    margin: '10px',
   },
 };
