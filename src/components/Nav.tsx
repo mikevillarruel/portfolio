@@ -27,5 +27,6 @@ const styles: Styles = {
     borderRightWidth: { xs: '0', md: '1px' },
     borderRightStyle: 'solid',
     borderRightColor: 'divider',
+    zIndex: {xs: 1, md: 0}
   },
 };
